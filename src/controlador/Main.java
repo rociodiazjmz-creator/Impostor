@@ -25,7 +25,7 @@ public class Main {
                 jugando=false;
             }
         }
-        consola.mostrar("Fin del Juego. ¡Gracias por jugar!\n");
+        consola.mostrar("Fin del Juego. ¡Gracias por jugar!");
     }
     
 }
