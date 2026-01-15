@@ -3,22 +3,26 @@ package modelo;
 import java.util.Random;
 
 /**
- *
+ * Clase que contiene una lista variada de palabras y devuelve una aleatoria.
+ * 
  * @author Rocio
  */
 public class Diccionario {
-
-    private String[] palabras = {"Aeropuerto", "Animal", "Apartamento", "Autob鷖",
-        "Banco", "Bar", "Biblioteca", "Bosque", "Cafeter韆",
+    private String[] palabras = {"Aeropuerto", "Animal", "Apartamento", "Autob煤s",
+        "Banco", "Bar", "Biblioteca", "Bosque", "Cafeter铆a",
         "Camping", "Casa", "Cine", "Cocina", "Colegio",
-        "Comisar韆", "Discoteca", "Dormitorio", "Escuela",
-        "Estaci髇 de tren", "F醔rica", "Farmacia", "Garaje",
-        "Gimnasio", "Granja", "Hospital", "Hotel", "Jard韓",
-        "Le髇", "Llavero", "Mercado", "Metro", "Museo", "Oficina",
+        "Comisar铆a", "Discoteca", "Dormitorio", "Escuela",
+        "Estaci贸n de tren", "F谩brica", "Farmacia", "Garaje",
+        "Gimnasio", "Granja", "Hospital", "Hotel", "Jard铆n",
+        "Le贸n", "Llavero", "Mercado", "Metro", "Museo", "Oficina",
         "Parque", "Piscina", "Playa", "Rey", "Restaurante", "Sala de espera",
-        "Sal髇", "Supermercado", "Teatro", "Universidad", "Vestuario", "Zool骻ico"
+        "Sal贸n", "Supermercado", "Teatro", "Universidad", "Vestuario", "Zool贸gico"
     };
-
+    
+    /**
+     * M茅todo que devuelve una palabra aleatoria.
+     * @return palabra aleatoria del atributo tipo array del diccionario
+     */
     public String obtenerPalabraAleatoria() {
         return palabras[new Random().nextInt(palabras.length)];
     }

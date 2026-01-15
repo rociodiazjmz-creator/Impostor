@@ -7,30 +7,46 @@ import modelo.Diccionario;
 import modelo.Jugador;
 import vista.Consola;
 
+/**
+ * Esta clase gestiona el funcionamiento de una partida al juego del Impostor.
+ * 
+ * @author Fernando
+ */
+
 public class Partida {
     private ArrayList<Jugador> jugadores = new ArrayList<>();
     private Consola consola = new Consola();
     private Diccionario dict = new Diccionario();
     private Scanner teclado  = new Scanner(System.in);
 
+    /**
+     * MÃ©todo que registra a los jugadores y los aÃ±ade al ArrayList de jugadores
+     * No se podrÃ¡ jugar con menos de 3 jugadores.
+     */
+    
     public void registrarJugadores() {
-        int cantidad = consola.pideInt("¿Cuántos jugadores sois? Introduzca un número: ");
-        //teclado.nextLine(); //---> AQUÍ NO FUNCIONA
+        int cantidad = 1;
+        do{
+            cantidad = consola.pideInt("Â¿CuÃ¡ntos jugadores sois? Introduzca un nÃºmero: ");
+        } while (cantidad <= 2);
+        
         for (int i = 0; i < cantidad; i++) {
             String nombre = consola.pideString("Nombre del jugador " + (i + 1));
             jugadores.add(new Jugador(nombre));
         }
     }
-
-    public void jugarRonda() { //en cada ronda, se mantienen los jugadores, pero no los roles
-        String palabraSecreta = dict.obtenerPalabraAleatoria();      
-        int nImpostores = consola.pideInt("¿Cuántos impostores habrá? Introduzca un número: ");
-        Collections.shuffle(jugadores); //utilizamos este método para barajear
-
-        //El primer jugador va a ser el árbitro
+    
+    /**
+     * MÃ©todo que gestiona una ronda del juego: 
+     *  - Repartimos los roles de los jugadores:
+     *      - Se 'barajea' el ArrayList y el primer jugador serÃ¡ el arbitro, y luego se deciden los impostores
+     *  - Obtenemos la palabra de la ronda. 
+     */
+    public void jugarRonda() { 
+        String palabraSecreta = dict.obtenerPalabraAleatoria();
+        int nImpostores = consola.pideInt("Â¿CuÃ¡ntos impostores habrÃ¡? Introduzca un nÃºmero: ");
+        Collections.shuffle(jugadores); 
         jugadores.get(0).setRol("ARBITRO");
-
-        //los siguientes N son los impostores
         for (int i = 1; i <= nImpostores; i++) {
             jugadores.get(i).setRol("IMPOSTOR");
         }

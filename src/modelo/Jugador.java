@@ -2,24 +2,26 @@
 package modelo;
 
 /**
- *
- * @author carol
+ * Clase que representa a un jugador dentro del juego.
+ * 
+ * Contiene atributos como el nombre y el rol (por defecto ser√° CIVIL) del jugador, 
+ * los m√©todos constructores, los Getter y los Setter.
+ * 
+ * @author Carol
  */
 public class Jugador {
-     private String nombre;
-    private String rol; //Impostor, Civil o ¡rbitro
+    private String nombre;
+    private String rol; 
    
+    public Jugador(){
+        nombre = null;
+        rol = "CIVIL";
+    }
     public Jugador(String nombre){
         this.nombre = nombre;
-        this.rol = "CIVIL";
-        /*
-        El rol se asigna y va cambiado de estado.
-        Por defecto se pondr· null, que serÌa igual que no    
-        ponerlo en el constructor
-        */  
-       
+        this.rol = "CIVIL";   
     }
-    // Getters y Setters
+    
     public String getNombre() {
         return nombre;
     }
