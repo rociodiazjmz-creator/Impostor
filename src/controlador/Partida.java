@@ -52,4 +52,6 @@ public class Partida {
         }
         consola.mostrarResultados(jugadores, palabraSecreta);
     }  
+    
+    
 }
